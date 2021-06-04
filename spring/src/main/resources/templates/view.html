@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>詳細</title>
+</head>
+<body th:object="${todo}">
+<h1>詳細</h1>
+<table>
+    <tr>
+        <th>登録日</th>
+        <th></th>
+        <td th:text="*{create_date}"></td>
+    </tr>
+    <tr>
+        <th>内容</th>
+        <th></th>
+        <td th:text="*{todo}"></td>
+    </tr>
+    <tr>
+        <th>memo</th>
+        <th></th>
+        <td th:text="*{memo}"></td>
+    </tr>
+    <tr>
+        <th>完了日</th>
+        <th></th>
+        <td th:text="*{end_date}"></td>
+    </tr>
+    <tr>
+        <th>最終更新</th>
+        <th></th>
+        <td th:text="*{update_date}"></td>
+    </tr>
+</table>
+<div class="btn_area_center">
+    <a th:href="@{/todo/{id}/edit(id=*{id})}">編集</a>
+    <a th:href="@{/todo/{id}/complete(id=*{id})}">完了</a>
+    <a th:href="@{/todo/{id}/delete(id=*{id})}">削除</a>
+    <a th:href="@{/top}">戻る</a>
+</div>
+</body>
+</html>

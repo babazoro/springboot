@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>編集</title>
+</head>
+<body>
+<h1>編集</h1>
+<form th:action="@{/todo/update}" th:object="${todoForm}" th:method="post">
+    <a th:href="@{/todo/{id}(id=*{id})}">キャンセル</a>
+    <input type="hidden" th:field="*{id}" />
+    <table>
+        <tr>
+            <th>Todo</th>
+            <td><input type="text" th:field="*{todo}"></td>
+        </tr>
+        <tr>
+            <th>memo</th>
+            <td><textarea rows="6" cols="40" th:field="*{memo}"></textarea></td>
+        </tr>
+    </table>
+    <div><input type="submit" value="保存"></div>
+</form>
+</body>
+</html>

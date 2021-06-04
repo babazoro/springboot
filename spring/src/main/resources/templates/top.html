@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="jp" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Todo一覧</title>
+</head>
+<body>
+<h1>Top</h1>
+<div><a th:href="@{/create}">新規登録はこちら</a></div>
+<h1>タスク一覧</h1>
+<a th:href="@{/}">全て</a>
+<a th:href="@{/top}">未完了</a>
+<a th:href="@{/top}">完了</a>
+<table>
+    <tr>
+        <th>Todo</th>
+        <th>作成日</th>
+        <th>更新日</th>
+        <th>詳細</th>
+    </tr>
+    <tr th:each="todo: ${todolist}" th:object="${todo}">
+        <td th:text="*{todo}"></td>
+        <td th:text="*{create_date}"></td>
+        <td th:text="*{update_date}"></td>
+        <td><a th:href="@{/todo/{id}(id=*{id})}">詳細</a></td>
+    </tr>
+</table>
+</body>
+</html>
